@@ -1,3 +1,10 @@
 from django.contrib import admin
+from core.models import Evento
 
 # Register your models here.
+
+class EventoAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'data_evento', 'data_criacao', 'usuario') #declara os campos que irão ser apresentado na visualização
+    list_filter = ('usuario', 'data_evento',) #Cria filtros na pesquisa dso eventos
+
+admin.site.register(Evento, EventoAdmin)
