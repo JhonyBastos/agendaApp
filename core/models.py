@@ -14,3 +14,6 @@ class Evento(models.Model):
 
     def __str__(self):  # define a forma como o registro vai se comportar
         return self.titulo
+
+    def get_data_evento(self):          # altera o padrão de apresentação da data
+        return self.data_evento.strftime('%d/%m/%Y %Hh%M min')
