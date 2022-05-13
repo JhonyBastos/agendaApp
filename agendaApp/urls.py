@@ -23,9 +23,10 @@ urlpatterns = [
     path('agendaApp/', views.lista_eventos),
     path('agendaApp/evento/', views.evento),
     path('agendaApp/evento/submit', views.submit_evento),
+    path('agendaApp/evento/delete/<int:id_evento>/', views.delete_evento),
     path('', RedirectView.as_view(url='/agendaApp/')), # path('', views.index) #redireciona a page inicial para o index
-    path('login/', views.login_user),
-    path('login/submit', views.submit_login),
-    path('logout/', views.logout_user)
+    path('login/', views.login_user), #função de login
+    path('login/submit', views.submit_login), #submeter login
+    path('logout/', views.logout_user) #função de logout
 
 ]
