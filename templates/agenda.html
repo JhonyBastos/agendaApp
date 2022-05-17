@@ -2,13 +2,14 @@
 
 {% block content %}
 <div class="conteiner">
-    <h2>Agendamentos</h2>
     <a href="evento/">
         <button class="btn btn-primary" type="button">Novo Evento</button>
     </a>
+    <h2>Eventos Ativos</h2>
     <table class="table">
-        <thead>
+        <thead class="table-light">
             <tr>
+                <th></th>
                 <th>Task</th>
                 <th>Data</th>
                 <th>Usuário</th>
@@ -21,6 +22,7 @@
                                 style="color:red"
                      {% endif %}>
                     <tr>
+                        <th><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"></th>
                         <th>{{ evento.titulo }}</th>
 
                         <th>{{ evento.get_data_evento }}</th>
@@ -30,6 +32,36 @@
                         <th>(<a href="evento/?id={{ evento.id }}">Editar</a> ||
                             <a href="evento/delete/{{ evento.id }}/">Excluir</a>)</th>
                     </tr>
+                </div>
+            {% endfor %}
+        </tbody>
+    </table> <br>
+
+    <h2>Eventos Concluídos</h2>
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th>Task</th>
+                <th>Data</th>
+                <th>Usuário</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evento in eventos %}
+                <div style="color:red">
+                    {% if evento.get_evento_atrasado %}
+                        <tr>
+                            <th>{{ evento.titulo }}</th>
+
+                            <th>{{ evento.get_data_evento }}</th>
+
+                            <th>{{ evento.usuario }}</th>
+
+                            <th>(<a href="evento/?id={{ evento.id }}">Editar</a> ||
+                                <a href="evento/delete/{{ evento.id }}/">Excluir</a>)</th>
+                        </tr>
+                    {% endif %}
                 </div>
             {% endfor %}
         </tbody>
