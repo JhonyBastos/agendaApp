@@ -14,4 +14,4 @@ Funções em implementação:
 
 
 
-ATENÇÃO!!! A aplicação se encontra em faze de implementação, podendo sofre atualizações constantes.
+ATENÇÃO!!! A aplicação se encontra em faze de implementação, podendo sofrer atualizações constantes.
